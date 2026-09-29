@@ -3,6 +3,11 @@
 set -o errexit -o nounset -o pipefail
 shopt -s dotglob extglob globstar
 
+if ! command -v zola >/dev/null 2>&1; then
+    echo "Error: Zola is required but was not found in PATH." >&2
+    exit 1
+fi
+
 if [[ ${GITHUB_ACTIONS:-false} != true ]]; then
     source venv/bin/activate
 fi
@@ -18,6 +23,12 @@ if ! flock -n $fd; then
     echo already processing/deploying static files >&2
     exit 1
 fi
+
+(
+    rm -Rf static/blog/
+    cd blog
+    zola build --output-dir ../static/blog --force
+)
 
 export PATH="$PWD/node_modules/.bin:$PATH"
 
@@ -39,7 +50,8 @@ for file in static-tmp/**/*.@(json|webmanifest); do
 done
 
 stylelint static-tmp/**/*.css
-find static-tmp -name '*.css' -exec csso {} -o {} \;
+# add --no-restructure because CSS rules were being merged incorrectly
+find static-tmp -name '*.css' -exec csso --no-restructure {} -o {} \;
 
 eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js
 find static-tmp -name '*.js' -exec terser --ecma 2022 --module -cmo {} {} \;
@@ -76,7 +88,8 @@ sed -i "$replace" static-tmp/releases.html
 
 gixy --skips hash_without_default,hsts_header,low_keepalive_requests,weak_ssl_tls nginx-tmp/nginx.conf
 
-xmllint --noout static-tmp/**/*.@(html|svg|xml)
+xmllint --noout --html static-tmp/**/*.html
+xmllint --noout static-tmp/**/*.@(svg|xml)
 java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only static-tmp/**/*.html
 java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --css static-tmp/**/*.css
 java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --svg static-tmp/**/!(bimi).svg

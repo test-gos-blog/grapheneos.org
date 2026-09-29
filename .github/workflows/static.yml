@@ -4,7 +4,9 @@ on: [pull_request, push]
 
 jobs:
   static:
-    runs-on: ubuntu-latest
+    # Change temporarily to fix linting errors. Can change back to ubuntu-latest after Nov 19.
+    # https://github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration/
+    runs-on: ubuntu-26.04
 
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -15,6 +17,9 @@ jobs:
       with:
         python-version: '3.13'
         cache: pip
+    - uses: taiki-e/install-action@83ac0ad63c0167e6f06796fab0fce28db1bf3db0 # v2.87.22
+      with:
+        tool: zola
 
     - run: sudo apt-get update
     - run: sudo apt-get -y install libxml2-utils yajl-tools moreutils zopfli
