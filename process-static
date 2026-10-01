@@ -50,8 +50,7 @@ for file in static-tmp/**/*.@(json|webmanifest); do
 done
 
 stylelint static-tmp/**/*.css
-# add --no-restructure because CSS rules were being merged incorrectly
-find static-tmp -name '*.css' -exec csso --no-restructure {} -o {} \;
+find static-tmp -name '*.css' -exec csso {} -o {} \;
 
 eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js
 find static-tmp -name '*.js' -exec terser --ecma 2022 --module -cmo {} {} \;
