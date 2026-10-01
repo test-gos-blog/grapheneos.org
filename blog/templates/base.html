@@ -26,20 +26,17 @@
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
         <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        {% raw %}[[css|/main.css]]{% endraw %}
+        [[css|/main.css]]
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
         <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
     </head>
     <body>
-        {% raw -%}
-        {% with current_page="blog" %}
-            {% include "header.html" %}
-        {% endwith %}
-        {%- endraw -%}
+        {% set current_page = "blog" %}
+        {% include "header.html" %}
 
         {% block content %}{% endblock content %}
         
-        {%- raw %}{% include "footer.html" %}{% endraw %}
+        {% include "footer.html" %}
     </body>
 </html>
