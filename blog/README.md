@@ -15,7 +15,7 @@ description = "Post description (used in meta tags for description and og:descri
 +++
 ```
 
-- `updated` can be added if a post is updated. Posts list is sorted by the updated date.
+- `updated` can be added if a post is updated.
 - `authors` accepts an array of authors. Authors do not show up on the main site, but are included in `atom.xml`. The default author is set in `zola.toml`.
 - `extra.category` / `extra.categories`, see next section.
 
