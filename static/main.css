@@ -701,7 +701,7 @@ hr {
         color: #c4c6cf; /* on-surface-variant */
     }
 
-    pre, details, details[open] summary, #hiring .role-summary-list > li, #hiring .role, #past-roles {
+    pre, details, details[open] summary, #hiring .role-summary-list > li, #hiring .role, #past-roles, blockquote, hr {
         border-color: #8e9099; /* outline */
     }
 
