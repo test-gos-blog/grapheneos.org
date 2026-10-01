@@ -4,9 +4,7 @@ on: [pull_request, push]
 
 jobs:
   static:
-    # Change temporarily to fix linting errors. Can change back to ubuntu-latest after Nov 19.
-    # https://github.blog/changelog/2026-09-17-ubuntu-26-generally-available-and-latest-migration/
-    runs-on: ubuntu-26.04
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

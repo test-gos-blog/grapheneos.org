@@ -88,8 +88,7 @@ sed -i "$replace" static-tmp/releases.html
 
 gixy --skips hash_without_default,hsts_header,low_keepalive_requests,weak_ssl_tls nginx-tmp/nginx.conf
 
-xmllint --noout --html static-tmp/**/*.html
-xmllint --noout static-tmp/**/*.@(svg|xml)
+xmllint --noout static-tmp/**/*.@(html|svg|xml)
 java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only static-tmp/**/*.html
 java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --css static-tmp/**/*.css
 java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --svg static-tmp/**/!(bimi).svg
