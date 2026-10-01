@@ -8,6 +8,8 @@
 
 {% block og_desc %}{{ page.description }}{% endblock og_desc %}
 
+{% block canonical_url %}<link rel="canonical" href="{{ config.extra.canonical_site ~ current_path }}" />{% endblock canonical_url %}
+
 {% block content %}
 <main class="blog-post">
     <a href="{{ get_url(path="@/_index.md") }}">‹ all posts</a>

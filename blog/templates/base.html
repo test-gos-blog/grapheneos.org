@@ -20,7 +20,7 @@
         <meta property="og:site_name" content="GrapheneOS"/>
         {# add blocks for these two because the 404.html template cannot access `current_url` or `current_path` -#}
         {% block og_url %}<meta property="og:url" content="{{ current_url }}"/>{% endblock og_url %}
-        {% block canonical_url %}<link rel="canonical" href="{{ current_url }}"/>{% endblock canonical_url %}
+        {% block canonical_url %}<link rel="canonical" href="{{ config.extra.canonical_site }}" />{% endblock canonical_url %}
         <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
