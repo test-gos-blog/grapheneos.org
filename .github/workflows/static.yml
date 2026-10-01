@@ -17,7 +17,8 @@ jobs:
         cache: pip
     - uses: taiki-e/install-action@83ac0ad63c0167e6f06796fab0fce28db1bf3db0 # v2.87.22
       with:
-        tool: zola
+        tool: zola@0.23.6
+        fallback: none
 
     - run: sudo apt-get update
     - run: sudo apt-get -y install libxml2-utils yajl-tools moreutils zopfli
