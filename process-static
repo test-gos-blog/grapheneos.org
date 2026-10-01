@@ -24,12 +24,6 @@ if ! flock -n $fd; then
     exit 1
 fi
 
-(
-    rm -Rf static/blog/
-    cd blog
-    zola build --output-dir ../static/blog --force
-)
-
 export PATH="$PWD/node_modules/.bin:$PATH"
 
 # can use file:// to avoid network requests
@@ -43,6 +37,11 @@ rm -rf static-tmp
 cp -a static static-tmp
 
 ./process-templates static-tmp
+
+(
+    cd blog
+    zola build --output-dir ../static-tmp/blog
+)
 
 for file in static-tmp/**/*.@(json|webmanifest); do
     json_verify < "$file" >/dev/null
