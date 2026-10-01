@@ -492,9 +492,9 @@ details[open] summary {
 }
 
 blockquote {
-	border-left: 1px solid #74777f;
-	margin: 1em 3px;
-	padding: 0.5em 10px;
+    border-left: 1px solid #74777f;
+    margin: 1em 3px;
+    padding: 0.5em 10px;
 }
 
 blockquote p {
