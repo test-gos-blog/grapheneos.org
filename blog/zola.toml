@@ -1,5 +1,5 @@
 base_url = "https://grapheneos.org/blog/"
-title = "Blog | GrapheneOS"
+title = "GrapheneOS Blog"
 description = "Blog for GrapheneOS, the private and secure mobile operating system with Android app compatibility."
 
 # Default author, but can be overridden for individual posts. The author only shows up in feeds.
