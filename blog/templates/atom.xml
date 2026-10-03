@@ -1,3 +1,6 @@
+{#- Copied from https://github.com/getzola/zola/blob/00afd659cd4f56476973e99ee7b1beada0d55ca1/components/templates/src/builtins/atom.xml -#}
+{#- with changes, see lines 49-55. -#}
+
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ lang }}">
     <title>{{ config.title }}
