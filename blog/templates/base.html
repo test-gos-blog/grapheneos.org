@@ -18,7 +18,7 @@
         <meta property="og:image:height" content="512"/>
         <meta property="og:image:alt" content="GrapheneOS logo"/>
         <meta property="og:site_name" content="GrapheneOS"/>
-        {# add blocks for these two because the 404.html template cannot access `current_url` or `current_path` -#}
+        {# Next two blocks only overridden in 404.html and alias.html templates to fully remove these tags. -#}
         {% block og_url %}<meta property="og:url" content="{{ current_url }}"/>{% endblock og_url %}
         {% block canonical_url %}<link rel="canonical" href="{{ config.extra.canonical_site }}" />{% endblock canonical_url %}
         <link rel="alternate" type="application/atom+xml" href="/blog/atom.xml"/>
