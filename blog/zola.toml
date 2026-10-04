@@ -9,6 +9,8 @@ exclude_paginated_pages_in_sitemap = "all"
 
 generate_robots_txt = false
 
+skip_content_templating = ["**/*.md"]
+
 [markdown]
 external_links_target_blank = true
 external_links_external = true
