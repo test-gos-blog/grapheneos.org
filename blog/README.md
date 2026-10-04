@@ -54,6 +54,8 @@ So to add an image in the `.md` file, just add `![alt text](filename.ext)`.
 
 Images have to be one of the following: `gif`, `jpg`, `jpeg`, `png`, or `webp`.
 
+Also note that if an image is replaced, it's best to use a new filename because images are cached for a year.
+
 ## Building
 
 The blog is set up to be part of the GrapheneOS site, so use `process-static` to build the blog along with the whole site. Building it with `zola build` can still be done, but resulting files are still incomplete.
