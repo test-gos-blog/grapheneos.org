@@ -8,7 +8,10 @@
 {% endif %}
 
 <main>
-    {% if section.title %}<h1>{{ section.title }}</h1>{% endif %}
+    <h1>
+        {% if section.title %}{{ section.title }}
+        {% else %}{{ config.title }}{% endif %}
+    </h1>
 
     {{ section.content | safe }}
 
