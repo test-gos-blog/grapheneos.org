@@ -1,1 +1,1 @@
-servers=({ams,dal,fra,lax,lon,mia,sao,sea,sin,syd,tyo,yto}.grapheneos.org)
+servers=(gos-org-staging.other8026.xyz)
