@@ -14,7 +14,7 @@ fi
 
 . servers.sh
 
-remote=root@yto.grapheneos.org
+remote=root@gos-org-staging.other8026.xyz
 
 rsync -pcv --chmod=F644 --fsync --preallocate mirrors $remote:/etc/mirrors
 
@@ -59,7 +59,3 @@ for server in ${servers[@]}; do
     echo active is now $target
     echo
 done
-
-if [[ -n "$changed" ]]; then
-    ./indexnow <<< "$changed"
-fi
